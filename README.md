@@ -1,6 +1,12 @@
+You're absolutely right! Cypress is typically set up at the **root folder** of the project, not inside the `src` folder. Let me fix the `README.md` file to reflect the correct structure and provide accurate instructions for Cypress.
+
+---
+
 # React + TypeScript + Vite Boilerplate
 
-This is a **starter template** 100% developed by @plucasr for building modern web applications using **React**, **TypeScript**, **Vite**, **React Router**, **Redux**, **Tailwind CSS**, and **Cypress** for end-to-end testing. It is designed to be an **easy-to-start boilerplate** with all the essential configurations and features pre-setup, so you can focus on building your application.
+This is a **starter template** for building modern web applications using **React**, **TypeScript**, **Vite**, **React Router**, **Redux**, **Tailwind CSS**, and **Cypress** for end-to-end testing. It is designed to be an **easy-to-start boilerplate** with all the essential configurations and features pre-setup, so you can focus on building your application.
+
+---
 
 ## Features
 
@@ -27,12 +33,14 @@ Follow these steps to set up and run the project locally.
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/plucasr/react-quick-start.git
+   cd react-quick-start
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    # or
@@ -54,20 +62,28 @@ Follow these steps to set up and run the project locally.
 Here’s an overview of the project structure:
 
 ```
-src/
-├── components/          # Reusable components (e.g., EmailInput, LoginForm)
-├── hooks/               # Custom hooks (e.g., useLoading, useAuth)
-├── pages/               # Page components (e.g., Home, About, Auth)
-├── redux/               # Redux slices and store configuration
-│   ├── authSlice.ts     # Auth-related state (e.g., token)
-│   ├── applicationSlice.ts # Application state (e.g., loading, toast messages)
-│   ├── store.ts         # Redux store configuration
-├── routes/              # React Router configuration
-│   ├── AppRoutes.tsx    # Main routing logic
-├── cypress/             # Cypress end-to-end tests
-│   ├── e2e/             # Test files
-├── App.tsx              # Main application component
-├── main.tsx             # Entry point for the app
+react-quick-start/
+
+├── cypress/              # Cypress end-to-end tests
+│   ├── e2e/              # Test files
+│   ├── support/          # Custom commands and configurations
+├── src/                  # Source code for the application
+│   ├── components/       # Reusable components (e.g., EmailInput, LoginForm)
+│   ├── hooks/            # Custom hooks (e.g., useLoading, useAuth)
+│   ├── pages/            # Page components (e.g., Home, About, Auth)
+│   ├── redux/            # Redux slices and store configuration
+│   │   ├── authSlice.ts  # Auth-related state (e.g., token)
+│   │   ├── applicationSlice.ts # Application state (e.g., loading, toast messages)
+│   │   ├── store.ts      # Redux store configuration
+│   ├── routes/           # React Router configuration
+│   │   ├── AppRoutes.tsx # Main routing logic
+│   ├── App.tsx           # Main application component
+│   ├── main.tsx          # Entry point for the app
+├── public/               # Static assets (e.g., images, fonts)
+├── index.html            # Main HTML file
+├── vite.config.ts        # Vite configuration
+├── package.json          # Project dependencies and scripts
+├── README.md             # Project documentation
 ```
 
 ---
@@ -75,12 +91,15 @@ src/
 ## Key Features Explained
 
 ### 1. **React Router with Nested Routes**
+
 The app includes an example of nested routes for authentication:
+
 - `/auth`: Parent route for authentication.
 - `/auth/login`: Login page.
 - `/auth/signup`: Signup page.
 
 Example:
+
 ```tsx
 <Route path="auth" element={<AuthLayout />}>
   <Route index element={<Login />} />
@@ -92,11 +111,14 @@ Example:
 ---
 
 ### 2. **Redux Setup**
+
 The project includes a basic Redux setup with two slices:
+
 - **`authSlice`**: Manages the authentication token.
 - **`applicationSlice`**: Manages the `loading` state and toast messages.
 
 Example:
+
 ```ts
 const authSlice = createSlice({
   name: "auth",
@@ -112,9 +134,11 @@ const authSlice = createSlice({
 ---
 
 ### 3. **Tailwind CSS**
+
 Tailwind CSS is pre-configured for rapid UI development. You can use utility classes directly in your components.
 
 Example:
+
 ```tsx
 <div className="bg-gray-50 p-4 rounded-lg shadow-md">
   <h1 className="text-2xl font-bold text-gray-900">Hello, World!</h1>
@@ -124,9 +148,11 @@ Example:
 ---
 
 ### 4. **Cypress for End-to-End Testing**
-Cypress is set up for end-to-end testing. You can find test files in the `cypress/e2e` directory.
+
+Cypress is set up at the **root folder** for end-to-end testing. You can find test files in the `cypress/e2e` directory.
 
 To run Cypress tests:
+
 ```bash
 npm run cypress:open
 # or
@@ -134,6 +160,7 @@ yarn cypress:open
 ```
 
 Example test:
+
 ```js
 describe("Login Page", () => {
   it("should display the login form", () => {
